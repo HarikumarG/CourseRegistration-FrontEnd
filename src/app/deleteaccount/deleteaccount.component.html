@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <!-- Custom Theme files -->
+  <!-- //Custom Theme files -->
+  <!-- web font -->
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+  <!-- //web font -->
+</head>
+
+
+<body>
+  <!-- main -->
+  <div class="main-w3layouts wrapper">
+    <h1>Delete Account</h1>
+    <div class="main-agileinfo">
+      <div class="agileits-top">
+        <form #loginForm="ngForm" (submit)=onSubmit()>
+          <div class="wthree-text" [class.has-error]="regnocontrol.invalid && regnocontrol.touched" [class.has-success]="regnocontrol.valid">
+            <label class="anim">Your Register number *</label>
+            <input id="regno" required pattern="[0-9]+$" type="text" name="regno" [(ngModel)]="user.regno" class="form-control" value=""
+              #regnocontrol="ngModel" />
+            <label class="anim">
+              <span *ngIf="regnocontrol.errors?.required && regnocontrol.touched">
+                Register number is required
+              </span>
+              <span *ngIf="regnocontrol.errors?.pattern && regnocontrol.touched">
+                Register number is invalid
+              </span>
+            </label>
+          </div>
+          <br>
+          <div class="wthree-text" [class.has-error]="passwordcontrol.touched" [class.has-success]="passwordcontrol.valid">
+            <label class="anim">Your Password *</label>
+            <input id="password" required type="password" name="password" [(ngModel)]="user.password" class="form-control" #passwordcontrol="ngModel"
+              value="" />
+            <label class="anim">
+              <span class="help-block" *ngIf="passwordcontrol.errors?.required && passwordcontrol.touched">
+                Password is required
+              </span>
+            </label>
+          </div>
+          <input type="submit" value="Delete Account" [disabled]="loginForm.invalid" />
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div id="background-wrap">
+  </div>
+</body>
+
+</html>
